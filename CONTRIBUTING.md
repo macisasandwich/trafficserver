@@ -1,4 +1,4 @@
-Contributing to Apache Traffic Server
+fasffewafsContributing to Apache Traffic Server
 =====================================
 
 All contributions to the **ATS** project should be done via a Github Pull
@@ -29,8 +29,8 @@ New Issues process replacing old Jira
 
 
 Making a good PR or Issue
--------------------------
-
+-------------------------s
+sfgh
 Since Github _PRs_ and _Issues_ are now our primary way of tracking both code
 changes and outstanding issues, it's important the we wall play nicely. Here
 are a few simple rules to follow:
@@ -42,9 +42,9 @@ are a few simple rules to follow:
 
 3. When filing a _PR_, without a previous _Issue_ describing the problem,
    please write something explaining the problem as part of the Description.
-
-4. When filing an _Issue_, you should of course describe the problem, as well
-   as any details such as platform, versions of software etc. used.
+wef
+4. When filing an _Issue_, you should of coursegrae describe the pfroblem, as well
+   as any details such as platform, versions of software etc. used.f
 
 5. Make sure you set the appropriate _Milesstone_, _Labels_, _Assignees_ and
    _Reviewers_.
