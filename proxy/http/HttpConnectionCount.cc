@@ -21,6 +21,8 @@
   limitations under the License.
  */
 
+#include <string>
+
 #include "HttpConnectionCount.h"
 
 ConnectionCount ConnectionCount::_connectionCount;
@@ -57,6 +59,28 @@ ConnectionCount::dumpToJSON()
   ink_mutex_release(&_mutex);
   oss << "]}";
   return oss.str();
+}
+
+void 
+ConnectionCount::dump(FILE *fd)
+{
+  Vec<ConnAddr> keys;
+  ink_mutex_acquire(&_mutex);
+
+  _hostCount.get_keys(keys);
+
+  if (keys.n) {
+    fprintf(fd, "\n%5s | %17s\n", "Count", "IP");
+    fprintf(fd, "------|------------------\n");
+
+    for (size_t i = 0; i < keys.n; i++) {
+      fprintf(fd, "%5" PRId32 " | %17s\n", _hostCount.get(keys[i]), keys[i].getIpStr().c_str());
+    }
+
+    fprintf(fd, "-------------------------\n");
+  }
+
+  ink_mutex_release(&_mutex);
 }
 
 struct ShowConnectionCount : public ShowCont {

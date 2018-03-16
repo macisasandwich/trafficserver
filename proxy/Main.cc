@@ -252,6 +252,8 @@ public:
       ink_freelists_dump(stderr);
       ResourceTracker::dump(stderr);
 
+      ConnectionCount::getInstance()->dump(stderr);
+
       if (!end) {
         end = (char *)sbrk(0);
       }

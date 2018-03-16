@@ -95,6 +95,12 @@ public:
    */
   std::string dumpToJSON();
 
+  /**
+   * dumps current stats to a specified file descriptor
+   * @param fd File descriptor to write to
+   */
+  void dump(FILE *fd);
+
   struct ConnAddr {
     IpEndpoint _addr;
     CryptoHash _hostname_hash;
