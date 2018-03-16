@@ -70,14 +70,14 @@ ConnectionCount::dump(FILE *fd)
   _hostCount.get_keys(keys);
 
   if (keys.n) {
-    fprintf(fd, "\n%5s | %17s\n", "Count", "IP");
-    fprintf(fd, "------|------------------\n");
+    fprintf(fd, "\n%5s | %24s\n", "Count", "IP:Port");
+    fprintf(fd, "------|-------------------------\n");
 
     for (size_t i = 0; i < keys.n; i++) {
-      fprintf(fd, "%5" PRId32 " | %17s\n", _hostCount.get(keys[i]), keys[i].getIpStr().c_str());
+      fprintf(fd, "%5" PRId32 " | %21s:%-5" PRId16 "\n", _hostCount.get(keys[i]), keys[i].getIpStr().c_str(), keys[i]._addr.host_order_port());
     }
 
-    fprintf(fd, "-------------------------\n");
+    fprintf(fd, "--------------------------------\n");
   }
 
   ink_mutex_release(&_mutex);
